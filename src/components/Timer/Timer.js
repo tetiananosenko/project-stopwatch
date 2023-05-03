@@ -29,6 +29,13 @@ const Timer = () => {
     return h + ':' + m + ':' + s + ':' + mil;
   }
 
+  useEffect(() => {
+    return () => {
+      console.log('aaaaa');
+      clearInterval(intervalId);
+    };
+  }, [intervalId])
+
   const startClick = () => {
     setDisabledStart(true);
     setDisabledStop(false);
@@ -36,6 +43,7 @@ const Timer = () => {
     clearInterval(intervalId);
     const newIntervalId = setInterval(() => {
       setTime(time => time + 10);
+      console.log('fjjj')
     }, 10);
     setIntervalId(newIntervalId);
   }
